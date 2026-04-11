@@ -14,8 +14,8 @@ COPY ./passwd /etc/passwd
 COPY ./shadow /etc/shadow
 
 USER garage
-WORKDIR /srv/garage
-ENV HOME=/srv/garage PATH=/usr/bin
+WORKDIR /var/lib/garage
+ENV HOME=/var/lib/garage PATH=/usr/bin
 
 ENTRYPOINT ["/usr/bin/garage"]
 CMD ["server"]
@@ -24,4 +24,4 @@ LABEL org.opencontainers.image.title="distroless garage"
 LABEL org.opencontainers.image.description="distroless garage"
 LABEL org.opencontainers.image.version="${GARAGE_VERSION}"
 LABEL org.opencontainers.image.source="https://github.com/simons-containers/distroless-garage"
-LABEL org.opencontainers.image.volumes.data="/srv/garage"
+LABEL org.opencontainers.image.volumes.data="/var/lib/garage"

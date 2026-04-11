@@ -4,14 +4,14 @@ Bare-bones distroless Garage container image from `scratch`.
 
 ## Running
 
-Mount config to `/etc/garage.toml` for configuration, mount data directories under `/srv/garage`
+Mount config to `/etc/garage.toml` for configuration, mount data directories under `/var/lib/garage`
 
 Example:
 
 ```bash
 docker run -it --rm \
   -v ./garage.toml:/etc/garage.toml \
-  -v ./data:/srv/garage \
+  -v ./data:/var/lib/garage \
   ghcr.io/simons-containers/distroless-garage:latest
 ```
 
