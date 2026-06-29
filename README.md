@@ -1,7 +1,3 @@
-![Latest](https://ghcr-badge.egpl.dev/simons-containers/distroless-garage/latest_tag?ignore=latest,sha256*&label=latest)  
-![Size](https://ghcr-badge.egpl.dev/simons-containers/distroless-garage/size?tag=latest)  
-![Tags](https://ghcr-badge.egpl.dev/simons-containers/distroless-garage/tags?ignore=latest,sha256*)  
-
 # Distroless Garage container
 
 Bare-bones distroless Garage container image from `scratch`.
