@@ -3,7 +3,7 @@ FROM cgr.dev/chainguard/curl:latest-dev AS builder
 ARG GARAGE_VERSION
 ARG GARAGE_RELEASE
 
-RUN curl ${GARAGE_RELEASE} -O /tmp/garage
+RUN curl ${GARAGE_RELEASE} -o /tmp/garage
 RUN chmod 0755 /tmp/garage
 
 FROM scratch
