@@ -1,15 +1,16 @@
-FROM archlinux:base-devel-20260308.0.497099 AS builder
+FROM cgr.dev/chainguard/curl:latest-dev AS builder
 
 ARG GARAGE_VERSION
+ARG GARAGE_RELEASE
 
-ADD https://garagehq.deuxfleurs.fr/_releases/v${GARAGE_VERSION}/x86_64-unknown-linux-musl/garage /garage
-RUN chmod 0755 /garage
+RUN curl ${GARAGE_RELEASE} -O /tmp/garage
+RUN chmod 0755 /tmp/garage
 
 FROM scratch
 
 ARG GARAGE_VERSION
 
-COPY --from=builder /garage /usr/bin/garage
+COPY --from=builder /tmp/garage /usr/bin/garage
 COPY ./passwd /etc/passwd
 COPY ./shadow /etc/shadow
 
