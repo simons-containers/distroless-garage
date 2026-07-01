@@ -3,7 +3,7 @@
     "version": "2.3.0",
     "purl": "pkg:generic/garage",
     "release": {
-      "url_pattern": "https://garagehq.deuxfleurs.fr/_releases/v${version}/x86_64-unknown-linux-musl/garage"
+      "url_pattern": "https://garagehq.deuxfleurs.fr/_releases/v{version}/x86_64-unknown-linux-musl/garage"
     }
   }
 }
