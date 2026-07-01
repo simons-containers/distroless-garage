@@ -1,3 +1,5 @@
+[![Current Version](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/release.svg)](https://github.com/simons-containers/distroless-garage/pkgs/container/distroless-garage) [![Tags](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/tags.svg)](https://github.com/simons-containers/distroless-garage/pkgs/container/distroless-garage) <br> ![Current Size](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/size.svg) ![Wasted Size](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/wasted.svg) ![Efficiency](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/efficiency.svg) <br> ![Critical](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/critical.svg) ![High](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/high.svg) ![Medium](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/medium.svg) ![Low](https://raw.githubusercontent.com/simons-containers/distroless-garage/badges/.badges/main/low.svg) <br> [![Publish Workflow](https://img.shields.io/github/actions/workflow/status/simons-containers/distroless-garage/deploy.yaml?label=Publish%20Workflow&logo=github)](https://github.com/simons-containers/distroless-garage/actions/workflows/deploy.yaml) [![Update Workflow](https://img.shields.io/github/actions/workflow/status/simons-containers/distroless-garage/update-versions.yaml?label=Update%20Workflow&logo=github)](https://github.com/simons-containers/distroless-garage/actions/workflows/update-versions.yaml)
+
 # Distroless Garage container
 
 Bare-bones distroless Garage container image from `scratch`.
@@ -13,20 +15,6 @@ docker run -it --rm \
   -v ./garage.toml:/etc/garage.toml \
   -v ./data:/var/lib/garage \
   ghcr.io/simons-containers/distroless-garage:latest
-```
-
-## Building
-
-| Arg | Description |
-|---|---|
-| `GARAGE_VERSION` | Version of Garage to use
-
-Build container using build-args from versions.yaml:
-
-```bash
-docker build -t \
-  distroless-garage:$(yq -r .garage versions.yaml) \
-  $(yq -r 'to_entries | .[] | "--build-arg \(.key | ascii_upcase)_VERSION=\(.value)"' versions.yaml) -f Containerfile .
 ```
 
 ## License
