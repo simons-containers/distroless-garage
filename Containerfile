@@ -3,14 +3,16 @@ FROM cgr.dev/chainguard/curl:latest-dev AS builder
 ARG GARAGE_VERSION
 ARG GARAGE_RELEASE
 
-RUN curl ${GARAGE_RELEASE} -o /tmp/garage
-RUN chmod 0755 /tmp/garage
+WORKDIR /extract/garage
+RUN curl --silent --show-error --location --output garage \
+  "${GARAGE_RELEASE}" \
+  && chmod 0755 /tmp/garage
 
 FROM scratch
 
 ARG GARAGE_VERSION
 
-COPY --from=builder /tmp/garage /usr/bin/garage
+COPY --from=builder /extract/garage/garage /usr/bin/garage
 COPY ./passwd /etc/passwd
 COPY ./shadow /etc/shadow
 
